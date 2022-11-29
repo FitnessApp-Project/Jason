@@ -4,6 +4,11 @@ import '../../../constants.dart';
 import '../../Login/login_screen.dart';
 import '../../Signup/signup_screen.dart';
 
+import 'package:FitnessApp/login/Screens/Login/login_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:FitnessApp/rootPage.dart';
+import 'package:FitnessApp/authentication.dart';
+
 class LoginAndSignupBtn extends StatelessWidget {
   const LoginAndSignupBtn({
     Key? key,
@@ -21,7 +26,10 @@ class LoginAndSignupBtn extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return LoginScreen();
+                    // return LoginScreen();
+                    return RootPage(
+                      auth: new Auth(),
+                    );
                   },
                 ),
               );

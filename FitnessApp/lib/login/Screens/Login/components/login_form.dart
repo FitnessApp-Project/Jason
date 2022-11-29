@@ -2,27 +2,31 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:FitnessApp/tabBar.dart';
+import 'package:FitnessApp/HomePage.dart';
 import '../../../components/already_have_an_account_acheck.dart';
 import '../../../constants.dart';
 import '../../Signup/signup_screen.dart';
 import '../../../Screens/Login/login_screen.dart';
-
+import 'package:FitnessApp/rootPage.dart';
+import 'package:FitnessApp/authentication.dart';
 
 class LoginForm extends StatelessWidget {
   LoginForm({
     Key? key,
     this.globalKey,
-    this.globalKey1
+    this.globalKey1,
+    this.fromKey
   }) : super(key: key);
   final GlobalKey? globalKey;
   final GlobalKey? globalKey1;
+  final GlobalKey? fromKey;
 
 
 
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: fromKey,
       child: Container(
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
@@ -70,7 +74,10 @@ class LoginForm extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return HomePage();
+                        // return HomePage();
+                        return RootPage(
+                          auth: new Auth(),
+                        );
                       },
                     ),
                   );

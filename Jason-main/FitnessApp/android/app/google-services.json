@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "957008649282",
+    "project_id": "appui-10a6e",
+    "storage_bucket": "appui-10a6e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957008649282:android:4cfabd91b1b464402061db",
+        "android_client_info": {
+          "package_name": "dev.flutter.isolate_example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957008649282-0cqic119quo75d2v0hiflfrmq8hnuklc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwsIZSBIJjUCebN1dT4iExU0vXoRVzKAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957008649282-0cqic119quo75d2v0hiflfrmq8hnuklc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "957008649282-2ehf3uktirlmbuklpip8j1ogne0d7li4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "jason4813.com"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

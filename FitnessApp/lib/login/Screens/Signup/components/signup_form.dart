@@ -6,6 +6,9 @@ import '../../../constants.dart';
 
 import '../../Login/login_screen.dart';
 
+import 'package:FitnessApp/rootPage.dart';
+import 'package:FitnessApp/authentication.dart';
+
 class SignUpForm extends StatelessWidget {
   const SignUpForm({
     Key? key,
@@ -57,7 +60,10 @@ class SignUpForm extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return LoginScreen();
+                      // return LoginScreen();
+                      return RootPage(
+                        auth: new Auth(),
+                      );
                     },
                   ),
                 );
@@ -72,7 +78,10 @@ class SignUpForm extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return LoginScreen();
+                      // return LoginScreen();
+                      return RootPage(
+                        auth: new Auth(),
+                      );
                     },
                   ),
                 );
