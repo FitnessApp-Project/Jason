@@ -27,9 +27,7 @@ class LoginAndSignupBtn extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) {
                     // return LoginScreen();
-                    return RootPage(
-                      auth: new Auth(),
-                    );
+                    return LoginScreen();
                   },
                 ),
               );

@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:isolate';
 import 'dart:typed_data';
+import 'package:FitnessApp/tabBar.dart';
 import 'package:body_detection/models/image_result.dart';
 import 'package:body_detection/models/pose.dart';
 
@@ -15,14 +16,15 @@ import 'pose_mask_painter.dart';
 import 'counterPaint.dart';
 import 'outSidePaint.dart';
 import 'HalfCircle.dart';
-
-
+import 'package:FitnessApp/helpers/Constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'provider.dart' as globals;
-
+import 'package:FitnessApp/sports menu/page1.dart';
 
 class Detection extends StatefulWidget {
-  const Detection({Key? key, required this.SportName});
+  const Detection({Key? key, required this.SportName, required this.Content});
   final String SportName;
+  final String Content;
   @override
   State<Detection> createState() => _DetectionState();
 }
@@ -47,6 +49,8 @@ class _DetectionState extends State<Detection> {
   deactivate(){
     super.deactivate();
     BodyDetection.stopCameraStream();
+    BodyDetection.disablePoseDetection();
+    globals.Provider.initVariables();
   }
 
   Future<void> _startCameraStream() async {
@@ -57,7 +61,7 @@ class _DetectionState extends State<Detection> {
     cameras = await availableCameras();
     _camera = CameraController(
       cameras[0],
-      ResolutionPreset.low,
+      ResolutionPreset.medium,
     );
 
     if (request.isGranted) {
@@ -74,6 +78,11 @@ class _DetectionState extends State<Detection> {
     }
   }
 
+  Future<void> jumpToHomePage() async{
+      Navigator.push(
+          context, CupertinoPageRoute(builder: (context) => HomePage()));
+  }
+
   void _handleCameraImage(ImageResult result) {
     // Ignore callback if navigated out of the page.
     if (!mounted) return;
@@ -86,12 +95,13 @@ class _DetectionState extends State<Detection> {
     final image = Image.memory(
       result.bytes,
       gaplessPlayback: true,
-      fit: BoxFit.fitWidth,
+      fit: BoxFit.fill,
     );
 
     setState(() {
       _cameraImage = image;
       _imageSize = result.size;
+      print("Size " + _imageSize.toString());
     });
   }
 
@@ -105,62 +115,76 @@ class _DetectionState extends State<Detection> {
 
   @override
   Widget build(BuildContext context) {
-    // return Container(
-    //     decoration : new BoxDecoration(
-    //         border: new Border.all(color: Color(0xFFFFFF00), width: 50),
-    //         color: Colors.white,
-    //     ),
-    //
-    // );
+    if(globals.Provider.squatState == "Done" || globals.Provider.kneelinglegraise == "Done" || globals.Provider.sidelegraiseState == "Done"
+        || globals.Provider.sidelegraiseState == "Done" || globals.Provider.lungeState == "Done"
+        || globals.Provider.statedForwardBendStretchState == "Done") {
+      jumpToHomePage();
+    }
+
     return MaterialApp(
-      home:   Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: const Text("運動名稱"),
-          centerTitle: true,
-          backgroundColor: Colors.yellow,
-        ),
-      body:
-        RepaintBoundary(
-            child:
-              CustomPaint(
-                  // size: const Size(360.0 ,566.0),
-                  // foregroundPainter:outSidePaint(),
+      home:
+        Scaffold(
+            resizeToAvoidBottomInset: false,
+            appBar:PreferredSize(
+                preferredSize: Size.fromHeight(40), // here the desired height
+                child: AppBar(
+                  title: Text(
+                      widget.SportName,
+                      style: TextStyle(fontSize: 25),
+                  ),
+                  leading:IconButton(
+                    iconSize: 30,
+                    icon: Icon(Icons.cancel, size: 30.0, color: Colors.white),
+                    onPressed: () {
+                      debugPrint('Cancel');
+                      Navigator.push(
+                          context, MaterialPageRoute(builder: (context) => HomePage()));
+                      deactivate();
+                    },
+                  ) ,
+                  centerTitle: true,
+                  backgroundColor: kPrimaryColor,
+                  elevation: 0,
+                ),
+            ),
+            body:
+              Container(
+                  foregroundDecoration: BoxDecoration(
+                      border: new Border(
+                          bottom: BorderSide(width: 20, color: kPrimaryColor),
+                          left: BorderSide(width: 20, color: kPrimaryColor),
+                          right: BorderSide(width: 20, color: kPrimaryColor),
+                      ),
+                  ),
                   child:
-                  Column(
-                    children: <Widget>[
-                      Stack(
-                          children: <Widget>[
-                              CustomPaint(
-                                size:Size.fromHeight(86),
-                                painter: HalfCircle(),
-                              ),
-                              CustomPaint(
-                                size:Size.fromHeight(86),
-                                foregroundPainter:counterPaint(),
-                              ),
-                          ]
-                      ),
-                      RepaintBoundary(
-                        child:CustomPaint(
-                          // size: const Size(double.infinity, double.infinity),
-                          // size:Size.fromWidth(360),
-                          child: _cameraImage,
-                          foregroundPainter: PoseMaskPainter(
-                            pose: _detectedPose,
-                            mask: _maskImage,
-                            imageSize: _imageSize,
-                            sportName: widget.SportName,
+                    Column(
+                        children: <Widget>[
+                          Container(
+                            color: Color.fromRGBO(245, 232, 43, 1),
+                            child: CustomPaint(
+                              size:Size.fromHeight(120),
+                              foregroundPainter:counterPaint(widget.Content),
+                            ),
                           ),
-                        ),
-                      ),
-                    ],
-                  )
+                          Expanded(
+                              child:
+                              RepaintBoundary(
+                                child:CustomPaint(
+                                  // size: const Size(double.infinity, double.infinity),
+                                  // size:Size.fromWidth(360),
+                                  child: _cameraImage,
+                                  foregroundPainter: PoseMaskPainter(
+                                    pose: _detectedPose,
+                                    mask: _maskImage,
+                                    imageSize: _imageSize,
+                                    sportName: widget.SportName,
+                                  ),
+                                ),
+                              ),
+                          )
+                        ]
+                    ), // CustomPaint
               )
-          ),
-
-
-
       ),
     );
   }

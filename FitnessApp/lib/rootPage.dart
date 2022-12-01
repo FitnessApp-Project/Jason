@@ -29,7 +29,7 @@ class _RootPageState extends State<RootPage>{
         if(user != null){
           _userId = user.uid;
         }
-        authStatus = user?.uid == null ? AuthStatus.LOGGED_OUT : AuthStatus.LOGGED_IN;
+        authStatus = user.uid == null ? AuthStatus.LOGGED_OUT : AuthStatus.LOGGED_IN;
       });
     });
   }

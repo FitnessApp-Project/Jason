@@ -11,8 +11,10 @@ import 'provider.dart' as globals;
 
 class counterPaint extends CustomPainter {
   counterPaint(
-
+      this.Content
   );
+  String Content;
+
   final rightPointPaint = Paint()
     ..color = const Color.fromRGBO(100, 208, 218, 1);
 
@@ -28,21 +30,51 @@ class counterPaint extends CustomPainter {
 
   void _paintCount(Canvas canvas, Size size, Offset position) {
     TextSpan Counter = TextSpan(
-      text: globals.Provider.counter.toString() + "次",
+      text: globals.Provider.counter.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
-        fontSize: 40,
+        fontWeight: FontWeight.bold,
+        color: Color.fromRGBO(249, 246, 255, 1),
+        fontSize: 80,
         // height: 15
       ),
     );
     TextSpan Timer = TextSpan(
-      text: globals.Provider.timer.toString() + "秒",
+      text: globals.Provider.timer.toString(),
       style: const TextStyle(
         color: Color.fromRGBO(0, 128, 255, 1),
+        fontSize: 80,
+        // height: 15
+      ),
+    );
+
+    TextSpan set = TextSpan(
+      text: "次數",
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: Color.fromRGBO(249, 246, 255, 1),
+        fontSize: 40,
+      ),
+    );
+
+    TextSpan second = TextSpan(
+      text: "秒數",
+      style: const TextStyle(
+        fontWeight: FontWeight.bold,
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 40,
         // height: 15
       ),
     );
+
+    TextSpan showContent = TextSpan(
+      text: Content,
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: Color.fromRGBO(249, 246, 255, 1),
+        fontSize: 40,
+      ),
+    );
+
     TextSpan down = TextSpan(
       text: "請往下",
       style: const TextStyle(
@@ -163,16 +195,30 @@ class counterPaint extends CustomPainter {
       ),
     );
 
+
+    TextPainter con = TextPainter(text:showContent, textAlign: TextAlign.left);
+    con.textDirection = TextDirection.ltr;
+    con.layout();
+    con.paint(canvas, Offset(size.width/2+48 ,10 ));
+
     if(globals.Provider.CounterOrTimer == "Timer"){
       TextPainter tp = TextPainter(text: Timer, textAlign: TextAlign.left);
       tp.textDirection = TextDirection.ltr;
       tp.layout();
-      tp.paint(canvas, Offset(size.width / 2 - 20, size.height / 2 - 10));
+      tp.paint(canvas, Offset(size.width / 2 - 30, size.height / 3 - 10));
+      TextPainter tp1 = TextPainter(text: second, textAlign: TextAlign.left);
+      tp1.textDirection = TextDirection.ltr;
+      tp1.layout();
+      tp1.paint(canvas, Offset(30, 10) );
     }else{
       TextPainter tp = TextPainter(text: Counter, textAlign: TextAlign.left);
       tp.textDirection = TextDirection.ltr;
       tp.layout();
-      tp.paint(canvas, Offset(size.width / 2 - 20, size.height / 2 - 10));
+      tp.paint(canvas, Offset(size.width / 2 - 30 , size.height / 3 - 10));
+      TextPainter tp1 = TextPainter(text: set, textAlign: TextAlign.left);
+      tp1.textDirection = TextDirection.ltr;
+      tp1.layout();
+      tp1.paint(canvas, Offset(30, 10) );
     }
 
     if (globals.Provider.state == "down") {

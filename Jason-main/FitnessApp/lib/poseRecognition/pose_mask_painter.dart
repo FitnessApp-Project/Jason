@@ -282,8 +282,8 @@ class PoseMaskPainter extends CustomPainter {
         globals.Provider.firstLock = false;
       }
     }
-    if(globals.Provider.counter >= 5){
-      globals.Provider.sidelegraiseState = "Done";
+    if(globals.Provider.counter >= 1){
+      globals.Provider.squatState = "Done";
     }
   }
 

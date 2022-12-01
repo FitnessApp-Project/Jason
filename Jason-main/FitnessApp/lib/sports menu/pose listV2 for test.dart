@@ -6,7 +6,8 @@ import 'package:FitnessApp/Sports menu/DetailsPage.dart';
 import 'package:FitnessApp/helpers/Constants.dart';
 
 import 'package:FitnessApp/poseRecognition/detection.dart';
-
+import 'package:FitnessApp/sports menu/poseIntro.dart';
+import 'package:flutter/cupertino.dart';
 
 class PoseListV2ForTest extends StatefulWidget {
   @override
@@ -48,6 +49,7 @@ class _PoseListV2ForTestState extends State<PoseListV2ForTest> {
     return Scaffold(
       // appBar: _buildBar(context),
       backgroundColor: appDarkGreyColor,
+
       body: Stack(
         alignment: Alignment.center,
         children: [
@@ -63,8 +65,7 @@ class _PoseListV2ForTestState extends State<PoseListV2ForTest> {
             ),
           ),
         ],
-      ),
-      // resizeToAvoidBottomInset: false,
+      ), resizeToAvoidBottomInset: false,
     );
   }
 
@@ -142,7 +143,6 @@ class _PoseListV2ForTestState extends State<PoseListV2ForTest> {
         }
       }
     }
-
     return ListView(
       padding: const EdgeInsets.only(top: 20.0),
       children: this
@@ -156,8 +156,6 @@ class _PoseListV2ForTestState extends State<PoseListV2ForTest> {
   Widget _buildListItem(BuildContext context, Record record) {
     // print("record.name : " + ValueKey(record.name).toString());
       print("record :" + record.name.toString());
-
-
     return Card(
       key: ValueKey(record.name),
       elevation: 8.0,
@@ -205,19 +203,10 @@ class _PoseListV2ForTestState extends State<PoseListV2ForTest> {
           ),
           trailing: Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
-            switch(record.name){
-              case "深蹲":
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Detection(SportName:record.name.toString())));
-                break;
-              case "自體腿部屈伸":
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Detection(SportName:record.name.toString())));
-                break;
-              default:
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Detection(SportName:record.name.toString())));
-                break;
-
-            }
-
+              Navigator.push(context, MaterialPageRoute(builder: (context) => PoseIntro(
+                  SportName: record.name.toString(),
+                  Context: record.context.toString(),
+              )));
           },
         ),
       ),

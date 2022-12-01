@@ -32,7 +32,7 @@ class LoginForm extends StatelessWidget {
         child: Column(
           children: [
             TextFormField(
-              key: globalKey,
+              // key: globalKey,
               keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.next,
               cursorColor: kPrimaryColor,
@@ -48,7 +48,7 @@ class LoginForm extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: defaultPadding),
               child: TextFormField(
-                key:globalKey1 ,
+                // key:globalKey1 ,
                 textInputAction: TextInputAction.done,
                 obscureText: true,
                 cursorColor: kPrimaryColor,

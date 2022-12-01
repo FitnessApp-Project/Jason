@@ -3,12 +3,15 @@ import 'game/GameIn.dart';
 import '/Sports menu/page1.dart';
 import '/setting/Setting2.dart';
 import 'calendar/CalendarPage.dart';
+import 'package:flutter/cupertino.dart';
 
 const double windowWidth = 1024;
 const double windowHeight = 800;
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({
+    Key? key,
+  }) : super(key: key);
 
   TabBar get _tabBar => const TabBar(
         labelColor: Colors.black,
@@ -35,7 +38,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return CupertinoPageScaffold(
+    child:
+      MaterialApp(
       theme: ThemeData(
         primaryColor: Colors.orange,
         colorScheme: ColorScheme.fromSwatch(
@@ -49,8 +54,9 @@ class HomePage extends StatelessWidget {
             appBar: AppBar(
               leading: const Center(
                 child: Text(
-                  'Demooooooo',
+                  'AI運動＋',
                   style: TextStyle(
+                    fontWeight: FontWeight.bold,
                     fontSize: 20,
                     color: Colors.white,
                   ),
@@ -86,6 +92,7 @@ class HomePage extends StatelessWidget {
                 Setting2(),
               ]),
             )),
+      ),
       ),
     );
   }

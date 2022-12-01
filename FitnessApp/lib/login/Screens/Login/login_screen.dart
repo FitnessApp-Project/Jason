@@ -14,10 +14,10 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({required this.auth, required this.onSignedIn});
+  LoginScreen({Key, key});
 
-  final BaseAuth auth;
-  final VoidCallback onSignedIn;
+  // final BaseAuth auth;
+  // final VoidCallback onSignedIn;
 
   @override
   State<StatefulWidget> createState() => new _LoginScreenState();

@@ -8,6 +8,13 @@ const Color kPrimaryColor = Colors.orange; //orange
 const Color kPrimaryDarkColor = Color.fromRGBO(225,122,5, 1); //darkorange
 const Color kPrimaryLightColor = Color(0xFFF1E6FF);//white
 
+const Color poseRight = Color(0xFF05C41C);//white
+const Color poseWrong = Color(0xFFF82F2F);//white
+Color poseFrameColor = kPrimaryColor;//white
+
+
+double getY=0;
+int score=0;
 
 // Strings
 const appTitle = "FitnessApp";

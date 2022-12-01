@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:FitnessApp/Sports%20menu/pose%20listV2.dart';
 import 'package:provider/provider.dart';
 import 'package:FitnessApp/sports menu/pose listV2 for test.dart';
+import 'package:flutter/cupertino.dart';
+
 const double BoxHeight = 200.0;
 const double gap = 5.0;
+
 
 var icon_list = <IconData>[
   Icons.format_list_bulleted,
@@ -26,31 +29,19 @@ class Page1 extends StatelessWidget {
   @override
   Widget build(context) {
     //final controller = Provider.of<InfiniteProcessIsolateController>(context);
-    return SafeArea(
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Scrollbar(
-            thumbVisibility: true,
-            child: ListView.builder(
-              itemCount: 4,
-              itemBuilder: (context, index) => MyItem(index),
+    return CupertinoPageScaffold(
+        child:SafeArea(
+          child:Container(
+            margin: EdgeInsets.only(top: 10),
+            child:Scrollbar(
+                  thumbVisibility: true,
+                  child: ListView.builder(
+                    itemCount: 4,
+                    itemBuilder: (context, index) => MyItem(index),
+                  ),
+                ),
             ),
-          ),
-          /*Positioned(
-            height: 50,
-            width: 200,
-            bottom: 50.0,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                elevation: 10.0,
-              ),
-              onPressed: () => print('hello'),
-              child: const Text('Start',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
-            ),
-          ),*/
-        ],
-      ),
+        ),
     );
   }
 }
@@ -84,18 +75,18 @@ class MyItem extends StatelessWidget {
               ),
             ),
             //Text('Scrollable 2 : Index $index'),
-            Center(
-              child: Positioned(
-                child: Text(
+              Positioned(
+                child: Center(
+                  child:Text(
                   boxlabel[index],
                   style: TextStyle(
                     fontSize: 30,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
+                  ),
                 ),
               ),
-            ),
           ],
         ),
       ),
@@ -103,7 +94,10 @@ class MyItem extends StatelessWidget {
         print("Click event on Container"+ index.toString());
         switch(index){
           case 1:
-            Navigator.push(context, MaterialPageRoute(builder: (context) =>PoseListV2ForTest()));
+            // Navigator.push(context, CupertinoPageRoute(builder: (context) =>PoseListV2ForTest()));
+            Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context){
+              return PoseListV2ForTest(); //新打开的还是本控件,可无限重复打开
+            }));
             break;
           default:
             //跳頁

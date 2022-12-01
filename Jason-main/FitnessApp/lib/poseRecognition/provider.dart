@@ -16,13 +16,29 @@ class Provider{
   static String pyramidStretchState = "";
   static String lungeState = "";
   static String statedForwardBendStretchState = "";
-
   static bool firstLock = true;
   static bool legpulloverLock = false;
-
   static String state = "down";
-
   static int timeCount = 0;
+
+  static void initVariables(){
+    counter = 0;
+    timer = 0;
+    armLock = false;
+    squatLock = false;
+    sidelegLock = false;
+    CounterOrTimer = "";
+    squatState = "";
+    sidelegraiseState = "";
+    kneelinglegraise = "";
+    pyramidStretchState = "";
+    lungeState = "";
+    statedForwardBendStretchState = "";
+    firstLock = true;
+    legpulloverLock = false;
+    state = "down";
+    timeCount = 0;
+  }
 
 
 
