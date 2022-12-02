@@ -185,7 +185,20 @@ class _DetectionState extends State<Detection> {
                         ]
                     ), // CustomPaint
               )
+
       ),
+    );
+
+  }
+  Widget _buildbutton(BuildContext context) {
+    return GestureDetector(
+        onTap: () {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetectionInitial(),
+          ));
+    },
     );
   }
 }
