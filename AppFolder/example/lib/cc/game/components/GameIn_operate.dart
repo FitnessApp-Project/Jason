@@ -1,27 +1,40 @@
 import 'dart:async';
-import 'dart:io';
+import 'package:body_detection_example/cc/game/components/CameraArea.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../helpers/Constants.dart';
+import '../GameOver.dart';
 import '../Play.dart';
-//import 'package:window_size/window_size.dart';
+
 
 const double windowWidth = 1024;
 const double windowHeight = 800;
 
 class GameIn_operate extends StatefulWidget {
   GameIn_operate({Key? key}) : super(key: key);
+  static int topScore=0;
+  void setScore(int s){
+    topScore=s;
+  }
+  int getScore(){
+    return topScore;
+  }
 
   @override
   State<GameIn_operate> createState() => _GameIn_operateState();
+
+
 }
 
 class _GameIn_operateState extends State<GameIn_operate> {
   late Timer timer;
   int count = 5;
 
-  @override
+
+
+ /* @override
   void didChangeDependencies() {
     var duration = Duration(milliseconds: 100);
     timer = Timer.periodic(duration, (timer) {
@@ -31,6 +44,7 @@ class _GameIn_operateState extends State<GameIn_operate> {
     });
     super.didChangeDependencies();
   }
+*/
 
   @override
   Widget build(BuildContext context) {
@@ -40,51 +54,46 @@ class _GameIn_operateState extends State<GameIn_operate> {
         child: Column(
           children: [
             Text(
-              '最高分數: $score',
+              '最高分數: ${score}',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 20,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
-
             Padding(padding: EdgeInsets.all(10)),
-            Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(40)),
-                    ),
-                    child: TextButton(
-                      child: Text(
-                        '開始',
-                        style: TextStyle(
-                          color: kPrimaryColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 40,
-                        ),
-                      ),
-                      onPressed: () {
-                        print('按下開始');
-                        print(score);
-
-                        Navigator.of(context, rootNavigator: true).push(
-                            CupertinoPageRoute(builder: (BuildContext context) {
-                          return Play();
-                        }));
-                      },
-                    ),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context, rootNavigator: true)
+                    .push(CupertinoPageRoute(builder: (BuildContext context) {
+                 // return GameOver( currentScore: 0,);
+                  return Play();
+                }));
+              },
+              child: Container(
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(40)),
+                ),
+                child: const Text(
+                  '開始',
+                  style: TextStyle(
+                    color: kPrimaryColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40,
                   ),
                 ),
-              ],
+              ),
             ),
           ],
         ),
       ),
+      onTap: (){
+        setState(() {
+          score;
+        });
+      },
     );
   }
 }

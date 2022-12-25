@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:body_detection_example/cc/poseList/poseRecord.dart';
 import 'package:body_detection_example/cc/poseList/poseRecordList.dart';
 import 'package:body_detection_example/cc/poseList/poseRecordService.dart';
-import 'package:body_detection_example/cc/Sports menu/poseImage.dart';
+// import 'package:body_detection_example/cc/Sports menu/poseImage.dart';
 import 'package:body_detection_example/cc/helpers/Constants.dart';
+import 'package:body_detection_example/cc/sports%20menu/poseImage.dart';
 
 import 'package:body_detection_example/poseRecognition/detection.dart';
 import 'package:body_detection_example/cc/sports menu/poseIntro.dart';
@@ -161,7 +162,8 @@ class _LegTrainMenuListState extends State<LegTrainMenuList> {
                 Expanded(
                   flex: 4,
                   child: Container(
-                    child: PoseImage(),
+                    // child: PoseImage(),
+                    child: PoseImage(poseName: record.poseName),
                   ),
                 ),
                 Expanded(

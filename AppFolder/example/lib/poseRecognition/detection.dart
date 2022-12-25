@@ -27,6 +27,9 @@ class Detection extends StatefulWidget {
   final String image;
   @override
   State<Detection> createState() => _DetectionState();
+  staetCam(){
+    _DetectionState().startCam();
+  }
 }
 
 
@@ -54,15 +57,20 @@ class _DetectionState extends State<Detection> {
   deactivate(){
     super.deactivate();
     BodyDetection.stopCameraStream();
+    print("_camera.description ");
+    print(_camera.description);
     globals.Provider.initVariables();
     // sportName = globals.Provider.record.poseName;
   }
+
   @override
   dispose(){
     super.dispose();
     globals.Provider.initVariables();
   }
-
+  startCam(){
+    _startCameraStream();
+  }
   Future<void> _startCameraStream() async {
     await BodyDetection.enablePoseDetection();
     WidgetsFlutterBinding.ensureInitialized();
@@ -187,9 +195,14 @@ class _DetectionState extends State<Detection> {
                   icon: Icon(Icons.cancel, size: 30.0, color: Colors.white),
                   onPressed: () {
                     debugPrint('Cancel');
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => tabBar()));
-                    deactivate();
+                    jumpToHomePage();
+                    // Future.delayed(Duration.zero, ()
+                    // {
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(builder: (context) => tabBar()));
+                    //   deactivate();
+                    // });
                   },
                 ) ,
                 title: Text(

@@ -8,6 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'calendar/CalendarPage.dart';
 import 'package:body_detection_example/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:body_detection_example/cc/login/Screens/Login/login_screen.dart';
 
 const double windowWidth = 1024;
 const double windowHeight = 800;
@@ -17,8 +18,20 @@ class tabBar extends StatelessWidget {
 
   final User? user = Auth().currentUser;
 
+
+
   Future<void> signOut() async {
-    await Auth().signOut();
+  //   // await Auth().signOut();
+    Future.delayed(Duration(seconds: 1), () {
+       Auth().signOut().then((dynamic) {
+          print("Successful Logout");
+      }).catchError((e, s) {
+        print(e);
+        print(s);
+      });
+    });
+    print("user");
+    print(user);
     print('已登出');
   }
 
@@ -48,10 +61,9 @@ class tabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("User ");
-    print(user?.displayName);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.orange,
         colorScheme: ColorScheme.fromSwatch(
@@ -65,7 +77,7 @@ class tabBar extends StatelessWidget {
             appBar: AppBar(
               leading: const Center(
                 child: Text(
-                  'Demo',
+                  '主頁面',
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.white,
@@ -80,7 +92,17 @@ class tabBar extends StatelessWidget {
                     Icons.logout,
                     color: Colors.white,
                   ),
-                  onPressed: () => signOut(),
+                  onPressed: () async {
+                      await signOut();
+                      if(user==null){
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => LoginScreen(),
+                          ),
+                        );
+                      };
+                  }
+
                 ),
                 IconButton(
                   icon: const Icon(

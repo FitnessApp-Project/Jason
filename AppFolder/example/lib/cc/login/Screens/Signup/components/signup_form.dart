@@ -1,3 +1,4 @@
+import 'package:body_detection_example/cc/tabBar.dart';
 import 'package:flutter/material.dart';
 
 
@@ -20,7 +21,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   Future<void> createUserWithEmailAndPassword() async {
     try {
-      await Auth().createUserWithEmailAndPassword(
+        await Auth().createUserWithEmailAndPassword(
         email: _controllerEmail.text,
         password: _controllerPassword.text,
       );
@@ -30,23 +31,30 @@ class _SignUpFormState extends State<SignUpForm> {
       });
     }
   }
-  Future<void> signInWithEmailAndPassword() async {
-    try {
-      await Auth().signInWithEmailAndPassword(
-        email: _controllerEmail.text,
-        password: _controllerPassword.text,
-      );
-    } on FirebaseAuthException catch (e) {
-      setState(() {
-        errorMessage = e.message;
-      });
-    }
-  }
+  // Future<void> signInWithEmailAndPassword() async {
+  //   try {
+  //     await Auth().signInWithEmailAndPassword(
+  //       email: _controllerEmail.text,
+  //       password: _controllerPassword.text,
+  //     );
+  //   } on FirebaseAuthException catch (e) {
+  //     setState(() {
+  //       errorMessage = e.message;
+  //     });
+  //   }
+  // }
+
   Widget _errorMessage() {
     return Text(errorMessage == '' ? '' : '$errorMessage');
   }
 
-
+  // final _auth = FirebaseAuth.instance;
+@override
+  void setState(VoidCallback fn) {
+    // TODO: implement setState
+    super.setState(fn);
+    errorMessage = null;
+  }
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -91,9 +99,24 @@ class _SignUpFormState extends State<SignUpForm> {
             _errorMessage(),
             const SizedBox(height: defaultPadding / 2),
             ElevatedButton(
-              onPressed: () {
-                createUserWithEmailAndPassword();
-              },
+              onPressed: () async {
+                // createUserWithEmailAndPassword();
+                  try {
+                    final newUser = await Auth().firebaseAuth
+                        .createUserWithEmailAndPassword(
+                        email: _controllerEmail.text,
+                        password: _controllerPassword.text);
+                    if (newUser != null) {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => tabBar(),
+                        ),
+                      );
+                    }
+                  }catch (e) {
+                    print(e);
+                  }
+                },
               child: Text("註冊".toUpperCase()),
             ),
             const SizedBox(height: defaultPadding/2),

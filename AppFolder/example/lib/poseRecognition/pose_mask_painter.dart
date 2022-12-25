@@ -59,7 +59,7 @@ class PoseMaskPainter extends CustomPainter {
       case "跪姿抬腿":
         _kneelinglegraise(canvas, size);//跪姿抬腿
         break;
-      case "金字塔式拉伸":
+      case "金字塔式":
         _pyramidStretch(canvas, size);//金字塔式拉伸
         break;
       case "弓箭步":
@@ -247,7 +247,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan rightKneeAngleText = TextSpan(
       text:rightKneeAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -259,7 +259,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan leftKneeAngleText = TextSpan(
       text:leftKneeAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -282,7 +282,7 @@ class PoseMaskPainter extends CustomPainter {
         globals.Provider.firstLock = false;
       }
     }
-    if(globals.Provider.counter >= 1){
+    if(globals.Provider.counter >= 5){
       globals.Provider.squatState = "Done";
     }
   }
@@ -340,7 +340,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan rightKneeAngleText = TextSpan(
       text:rightKneeAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -353,7 +353,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan leftKneeAngleText = TextSpan(
       text:leftKneeAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -366,7 +366,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan rightHipAngleText = TextSpan(
       text: rightHipAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -379,7 +379,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan leftHipAngleText = TextSpan(
       text: leftHipAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -392,7 +392,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan rightShoulderAngleText = TextSpan(
       text: rightShoulderAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -405,7 +405,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan leftShoulderAngleText = TextSpan(
       text: leftShoulderAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -415,7 +415,7 @@ class PoseMaskPainter extends CustomPainter {
     tp6.paint(canvas, offsetForPart(leftShoulder));
 
     print("the counter is : " + globals.Provider.counter.toString());
-    if( rightKneeAngle > 70  && leftKneeAngle  > 70  && rightHipAngle > 150 && leftHipAngle  > 150 && rightShoulderAngle < 30
+    if( rightKneeAngle > 60  && leftKneeAngle  > 60  && rightHipAngle > 150 && leftHipAngle  > 150 && rightShoulderAngle < 30
         && leftShoulderAngle < 30 && globals.Provider.legpulloverLock == false){
       globals.Provider.state = "down";
       globals.Provider.legpulloverLock = true;
@@ -431,7 +431,7 @@ class PoseMaskPainter extends CustomPainter {
         globals.Provider.firstLock = false;
       }
     }
-    if(globals.Provider.counter >= 1){
+    if(globals.Provider.counter >= 10){
       globals.Provider.legpulloverState = "Done";
     }
   }
@@ -492,7 +492,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan rightHipAngleText = TextSpan(
       text: rightHipAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -505,7 +505,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan leftHipAngleText = TextSpan(
       text: leftHipAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -518,7 +518,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan leftKneeAngleText = TextSpan(
       text: leftKneeAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -531,7 +531,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan rightKneeAngleText = TextSpan(
       text: rightKneeAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -544,7 +544,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan rightShoulderAngleText = TextSpan(
       text: rightShoulderAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -557,7 +557,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan leftShoulderAngleText = TextSpan(
       text: leftShoulderAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -577,7 +577,7 @@ class PoseMaskPainter extends CustomPainter {
         globals.Provider.state = "up";
         globals.Provider.sidelegLock = false;
         globals.Provider.counter += 1;
-        if(globals.Provider.counter >= 5){
+        if(globals.Provider.counter >= 10){
           globals.Provider.sidelegraiseState = "right";
           globals.Provider.counter = 0;
         }
@@ -592,13 +592,11 @@ class PoseMaskPainter extends CustomPainter {
         globals.Provider.counter += 1;
         if(globals.Provider.counter >= 5){
           globals.Provider.sidelegraiseState = "Done";
-          globals.Provider.counter = 0;
+          globals.Provider.counter = 10;
         }
       }
     }
-    if(globals.Provider.counter >= 1){
-      globals.Provider.sidelegraiseState = "Done";
-    }
+
   }
 
   // //跪姿抬腿------------------------------------------------------------------------------------------------------
@@ -650,7 +648,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan rightHipAngleText = TextSpan(
       text: rightHipAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -663,7 +661,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan leftHipAngleText = TextSpan(
       text: leftHipAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -676,7 +674,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan rightKneeAngleText = TextSpan(
       text: rightKneeAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -689,7 +687,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan leftKneeAngleText = TextSpan(
       text: leftKneeAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -703,7 +701,7 @@ class PoseMaskPainter extends CustomPainter {
       globals.Provider.kneelinglegraiseState = "left";
       globals.Provider.state = "up";
     }else if(globals.Provider.kneelinglegraiseState == "left"){ //抬左腿
-      if(rightKneeAngle > 40 && rightKneeAngle < 100 && rightHipAngle > 80 && leftKneeAngle > 140 && globals.Provider.sidelegLock == false){
+      if(rightKneeAngle > 40 && rightKneeAngle < 100 && rightHipAngle > 70 && leftKneeAngle > 120 && globals.Provider.sidelegLock == false){
         globals.Provider.state = "down";
         globals.Provider.sidelegLock = true;
       }else if(rightKneeAngle > 40 && rightKneeAngle < 100 && rightHipAngle < 30 && leftKneeAngle < 80 && globals.Provider.sidelegLock == true){
@@ -716,7 +714,7 @@ class PoseMaskPainter extends CustomPainter {
         }
       }
     }else if(globals.Provider.kneelinglegraiseState == "right"){//抬右腿
-      if(leftKneeAngle > 40 && leftKneeAngle < 100 && leftHipAngle > 80 && rightKneeAngle > 140 && globals.Provider.sidelegLock == false){
+      if(leftKneeAngle > 40 && leftKneeAngle < 100 && leftHipAngle > 70 && rightKneeAngle > 120 && globals.Provider.sidelegLock == false){
         globals.Provider.state = "down";
         globals.Provider.sidelegLock = true;
       }else if(leftKneeAngle > 40 && leftKneeAngle < 100 && leftHipAngle < 30 && rightKneeAngle < 80 && globals.Provider.sidelegLock == true){
@@ -729,9 +727,7 @@ class PoseMaskPainter extends CustomPainter {
         }
       }
     }
-    if(globals.Provider.counter >= 1){
-      globals.Provider.kneelinglegraiseState = "Done";
-    }
+
   }
   // //金字塔式拉伸------------------------------------------------------------------------------------------------------
   static final timer = PausableTimer(Duration(seconds: 10), () => print('Timer created!'));
@@ -794,7 +790,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan rightHipAngleText_1 = TextSpan(
       text: rightHipAngle_1.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -807,7 +803,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan leftHipAngleText_1 = TextSpan(
       text: leftHipAngle_1.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -820,7 +816,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan rightHipAngleText_2 = TextSpan(
       text: rightHipAngle_2.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -834,7 +830,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan leftHipAngleText_2 = TextSpan(
       text: leftHipAngle_2.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -847,7 +843,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan rightShoulderAngleText = TextSpan(
       text: rightShoulderAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -860,7 +856,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan leftShoulderAngleText = TextSpan(
       text: leftShoulderAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -873,7 +869,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan rightKneeAngleText = TextSpan(
       text: rightKneeAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );
@@ -886,7 +882,7 @@ class PoseMaskPainter extends CustomPainter {
     TextSpan leftKneeAngleText = TextSpan(
       text: leftKneeAngle.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 25,
       ),
     );

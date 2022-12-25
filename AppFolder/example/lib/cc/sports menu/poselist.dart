@@ -170,7 +170,8 @@ class _PoseListState extends State<PoseList> {
               Expanded(
                 flex: 4,
                 child: Container(
-                  child: PoseImage(),
+                  // child: PoseImage(),
+                  child: PoseImage(poseName: record.poseName),
                 ),
               ),
               Expanded(

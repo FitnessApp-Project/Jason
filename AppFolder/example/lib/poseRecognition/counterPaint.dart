@@ -41,7 +41,7 @@ class counterPaint extends CustomPainter {
     TextSpan Timer = TextSpan(
       text: globals.Provider.timer.toString(),
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 80,
         // height: 15
       ),
@@ -101,86 +101,86 @@ class counterPaint extends CustomPainter {
     );
 
     TextSpan sidelegraiseleft = TextSpan(
-      text: "身體請朝左,左手軸壓著地板",
+      text: "身體朝左",
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 30,
         // height: 15,
       ),
     );
     TextSpan sidelegraiseright = TextSpan(
-      text: "身體請朝右,右手軸壓著地板",
+      text: "身體朝右",
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 30,
         // height: 15,
       ),
     );
     TextSpan kneelinglegraiseRight = TextSpan(
-      text: "雙手撐地 雙腳跪地 請抬右腿",
+      text: "請抬右腿",
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 30,
         // height: 15,
       ),
     );
     TextSpan kneelinglegraiseLeft = TextSpan(
-      text: "雙手撐地 雙腳跪地 請抬左腿",
+      text: "請抬左腿",
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 30,
         // height: 15,
       ),
     );
     TextSpan pyramidStretchLeft = TextSpan(
-      text: "請雙手朝左腳尖拉伸",
+      text: "朝左腳尖拉",
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 30,
         // height: 15,
       ),
     );
 
     TextSpan pyramidStretchRight = TextSpan(
-      text: "請雙手朝右腳尖拉伸",
+      text: "朝右腳尖拉",
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 30,
         // height: 15,
       ),
     );
 
     TextSpan lungeLeft = TextSpan(
-      text: "將左腳往前蹲成弓箭步",
+      text: "左腳往前",
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 30,
         // height: 15,
       ),
     );
 
     TextSpan lungeRight = TextSpan(
-      text: "將右腳往前蹲成弓箭步",
+      text: "右腳往前",
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 30,
         // height: 15,
       ),
     );
 
     TextSpan statedForwardBendStretchStateLeft = TextSpan(
-      text: "坐姿前彎向左腳拉伸",
+      text: "向左腳拉",
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 30,
         // height: 15,
       ),
     );
 
     TextSpan statedForwardBendStretchStateRight = TextSpan(
-      text: "坐姿前彎向右腳拉伸",
+      text: "向右腳拉",
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
+        color: Color.fromRGBO(249, 246, 255, 1),
         fontSize: 30,
         // height: 15,
       ),
@@ -189,8 +189,8 @@ class counterPaint extends CustomPainter {
     TextSpan Done = TextSpan(
       text: "已完成",
       style: const TextStyle(
-        color: Color.fromRGBO(0, 128, 255, 1),
-        fontSize: 30,
+        color: Color.fromRGBO(249, 246, 255, 1),
+        fontSize: 25,
         // height: 15,
       ),
     );
@@ -242,60 +242,60 @@ class counterPaint extends CustomPainter {
       TextPainter tp = TextPainter(text: sidelegraiseleft, textAlign: TextAlign.left);
       tp.textDirection = TextDirection.ltr;
       tp.layout();
-      tp.paint(canvas, Offset(5, 5));
+      tp.paint(canvas, Offset(size.width/2+48, size.height-50));
     }else if (globals.Provider.sidelegraiseState == "right") {
       TextPainter tp = TextPainter(text: sidelegraiseright, textAlign: TextAlign.left);
       tp.textDirection = TextDirection.ltr;
       tp.layout();
-      tp.paint(canvas, Offset(5, 5));
+      tp.paint(canvas, Offset(size.width/2+48, size.height-50));
     }
 
     if (globals.Provider.kneelinglegraiseState == "left") {
       TextPainter tp = TextPainter(text: kneelinglegraiseLeft, textAlign: TextAlign.left);
       tp.textDirection = TextDirection.ltr;
       tp.layout();
-      tp.paint(canvas, Offset(5, 5));
+      tp.paint(canvas, Offset(size.width/2+48, size.height-50));
     }else if (globals.Provider.kneelinglegraiseState == "right") {
       TextPainter tp = TextPainter(text: kneelinglegraiseRight, textAlign: TextAlign.left);
       tp.textDirection = TextDirection.ltr;
       tp.layout();
-      tp.paint(canvas, Offset(5, 5));
+      tp.paint(canvas, Offset(size.width/2+48, size.height-50));
     }
 
     if (globals.Provider.pyramidStretchState == "left") {
       TextPainter tp = TextPainter(text: pyramidStretchLeft, textAlign: TextAlign.left);
       tp.textDirection = TextDirection.ltr;
       tp.layout();
-      tp.paint(canvas, Offset(5, 5));
+      tp.paint(canvas, Offset(size.width/2+48, size.height-50));
     }else if (globals.Provider.pyramidStretchState == "right") {
       TextPainter tp = TextPainter(text: pyramidStretchRight, textAlign: TextAlign.left);
       tp.textDirection = TextDirection.ltr;
       tp.layout();
-      tp.paint(canvas, Offset(5, 5));
+      tp.paint(canvas, Offset(size.width/2+48, size.height-50));
     }
 
     if (globals.Provider.lungeState == "left") {
       TextPainter tp = TextPainter(text: lungeLeft, textAlign: TextAlign.left);
       tp.textDirection = TextDirection.ltr;
       tp.layout();
-      tp.paint(canvas, Offset(5, 5));
+      tp.paint(canvas, Offset(size.width/2+48, size.height-50));
     }else if (globals.Provider.lungeState == "right") {
       TextPainter tp = TextPainter(text: lungeRight, textAlign: TextAlign.left);
       tp.textDirection = TextDirection.ltr;
       tp.layout();
-      tp.paint(canvas, Offset(5, 5));
+      tp.paint(canvas, Offset(size.width/2+48, size.height-50));
     }
 
     if (globals.Provider.statedForwardBendStretchState == "left") {
       TextPainter tp = TextPainter(text: statedForwardBendStretchStateLeft, textAlign: TextAlign.left);
       tp.textDirection = TextDirection.ltr;
       tp.layout();
-      tp.paint(canvas, Offset(5, 5));
+      tp.paint(canvas, Offset(size.width/2+48, size.height-50));
     }else if (globals.Provider.statedForwardBendStretchState == "right") {
       TextPainter tp = TextPainter(text: statedForwardBendStretchStateRight, textAlign: TextAlign.left);
       tp.textDirection = TextDirection.ltr;
       tp.layout();
-      tp.paint(canvas, Offset(5, 5));
+      tp.paint(canvas, Offset(size.width/2+48, size.height-50));
     }
 
     if (globals.Provider.squatState == "Done" || globals.Provider.legpulloverState == "Done" || globals.Provider.kneelinglegraiseState == "Done" || globals.Provider.pyramidStretchState == "Done"

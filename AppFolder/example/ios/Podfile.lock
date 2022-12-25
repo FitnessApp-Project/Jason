@@ -123,7 +123,7 @@ PODS:
     - GoogleUtilitiesComponents (~> 1.0)
     - GTMSessionFetcher/Core (~> 2.1)
     - Protobuf (~> 3.12)
-  - MLKitPoseDetection (1.0.0-beta5):
+  - MLKitPoseDetection (1.0.0-beta5):10
     - MLKitCommon (~> 3.1)
     - MLKitPoseDetectionCommon (= 1.0.0-beta5)
     - MLKitXenoCommon (= 1.0.0-beta5)
@@ -161,6 +161,8 @@ PODS:
   - SDWebImage (5.12.1):
     - SDWebImage/Core (= 5.12.1)
   - SDWebImage/Core (5.12.1)
+  - shared_preferences_ios (0.0.1):
+    - Flutter
   - SwiftyGif (5.4.0)
 
 DEPENDENCIES:
@@ -172,6 +174,7 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_local_notifications (from `.symlinks/plugins/flutter_local_notifications/ios`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+  - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
 
 SPEC REPOS:
   trunk:
@@ -219,6 +222,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_local_notifications/ios"
   permission_handler_apple:
     :path: ".symlinks/plugins/permission_handler_apple/ios"
+  shared_preferences_ios:
+    :path: ".symlinks/plugins/shared_preferences_ios/ios"
 
 SPEC CHECKSUMS:
   body_detection: ec8d077166ec7c1b092d133553ff964eaff7a45e
@@ -254,6 +259,7 @@ SPEC CHECKSUMS:
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   Protobuf: 1a37ebea1338949e9ac35a3f06e80b3f536eec8d
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
+  shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
   SwiftyGif: 5d4af95df24caf1c570dbbcb32a3b8a0763bc6d7
 
 PODFILE CHECKSUM: 83a6e83fd3626c680326bc438c8cba1e38034676

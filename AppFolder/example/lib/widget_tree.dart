@@ -20,9 +20,16 @@ class _WidgetTreeState extends State<WidgetTree> {
     return StreamBuilder(
       stream: Auth().authStateChanges,
       builder: (context, snapshot) {
+        print("snapShot");
+        print(snapshot);
+        print("snapshot.data");
+        print(snapshot.data.toString());
         if (snapshot.hasData) {
+          print("return tabBar();");
           return tabBar();
-        } else {
+        }
+        else {
+          print("return const LoginScreen()");
           return const LoginScreen();
         }
       },
